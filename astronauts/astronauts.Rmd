@@ -1,0 +1,48 @@
+```{r}
+library(tidyverse)
+library(tidytuesdayR)
+library(scales)
+library(lubridate)
+```
+```{r}
+tuesdata <- tidytuesdayR::tt_load(2020, week = 29)
+astronauts <- tuesdata$astronauts
+```
+```{r}
+astronauts <- astronauts %>% 
+  rename("number_of_eva" = "field21")
+```
+
+```{r}
+# converting to lower case as some occupations are duplicated 
+astronauts <- data.frame(lapply(astronauts, function(x){
+  if (is.character(x)) return(tolower(x))
+  else return(x)
+}))
+astronauts <- astronauts %>% 
+  mutate_if(is.factor, as.character)
+```
+
+```{r}
+astronauts %>% 
+  ggplot() +
+  geom_bar(aes(x = year_of_mission, fill = sex)) +
+  facet_wrap(~sex) +
+  labs(x = "Year of Mission",
+         y = "Number of Astronauts",
+         title = "Number of Astronaut Missions by Sex",
+       caption = "Source: Corlett, Stavnichuk, and Komarova 2020") +
+  theme(legend.position = "none")
+```
+```{r}
+astronauts %>% 
+  ggplot() + 
+    geom_point(aes(x = year_of_selection, y = year_of_mission, colour = sex)) +
+  facet_wrap(~sex) +
+  labs(x = "Year of Selection",
+       y = "Year of Mission",
+       caption = "Source: Corlett, Stavnichuk, and Komarova 2020")
+```
+
+
+
