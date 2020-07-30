@@ -1,6 +1,7 @@
 ```{r}
 library(tidyverse)
 library(palmerpenguins)
+library(imager)
 ```
 ```{r}
 tuesdata <- tidytuesdayR::tt_load('2020-07-28')
@@ -15,5 +16,13 @@ ggplot() +
        title = "Mass and Flipper Length of Penguins by Species",
        caption = "Data from Dr. Kristen Gorman and the Palmer Station, Artwork by @allison_horst")
 ```
+```{r}
+im <- load.image("images/penguins.png")
+```
+```{r}
+thmb <- resize(im,round(width(im)/2),round(height(im)/2))
+```
+
+![Alt text](/Users/jennie/git_projects/Tidy-Tuesdays/palmer_penguins/images/penguins.png)
 
 
