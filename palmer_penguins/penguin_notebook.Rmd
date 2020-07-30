@@ -10,7 +10,11 @@ penguins <- tuesdata$penguins
 ```{r}
 penguins %>% 
 ggplot() +
-  geom_point(aes(x = flipper_length_mm, y = body_mass_g, colour = species)) +
+  aes(x = flipper_length_mm, y = body_mass_g, colour = species) +
+  geom_point() +
+  scale_colour_manual(values = c("Chinstrap" = "#be29ec",
+                               "Gentoo" = "#006666", 
+                               "Adelie" = "#ff9a00")) +
   labs(x = "Flipper Length (mm)",
        y = "Body Mass (g)",
        title = "Mass and Flipper Length of Penguins by Species",
@@ -21,6 +25,8 @@ im <- load.image("images/penguins.png")
 ```
 ```{r}
 thmb <- resize(im,round(width(im)/2),round(height(im)/2))
+
+
 ```
 
 ![Alt text](/Users/jennie/git_projects/Tidy-Tuesdays/palmer_penguins/images/penguins.png)
