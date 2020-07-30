@@ -1,0 +1,9 @@
+```{r}
+library(tidyverse)
+library(palmerpenguins)
+```
+```{r}
+tuesdata <- tidytuesdayR::tt_load('2020-07-28')
+penguins <- tuesdata$penguins
+```
+
