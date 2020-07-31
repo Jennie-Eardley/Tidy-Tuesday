@@ -21,14 +21,21 @@ ggplot() +
        caption = "Data from Dr. Kristen Gorman and the Palmer Station, Artwork by @allison_horst")
 ```
 ```{r}
-im <- load.image("images/penguins.png")
+#im <- load.image("images/penguins.png")
 ```
 ```{r}
-thmb <- resize(im,round(width(im)/2),round(height(im)/2))
+#thmb <- resize(im,round(width(im)/10),round(height(im)/10))
 
 
 ```
 
-![Alt text](/Users/jennie/git_projects/Tidy-Tuesdays/palmer_penguins/images/penguins.png)
+```{r}
+#png(file="/Users/jennie/git_projects/Tidy-Tuesdays/palmer_penguins/images/penguins.png",
+#width=35, height=60)
+```
+
+![](/Users/jennie/git_projects/Tidy-Tuesdays/palmer_penguins/images/penguins.png)
+
+
 
 
