@@ -9,11 +9,12 @@ ui <- fluidPage(
     sidebarLayout(
         
         sidebarPanel(
-            tags$h5("Select a Country"),
             
-            checkboxGroupInput("country", "Select Keywords",
+            
+            checkboxGroupInput("country", "Select Countries",
                              unique(gdpr_violations$name))
-        )
-        
-    ),
-    mainPanel(plotlyOutput(gdpr_plot)))
+        ),
+mainPanel(
+        fluidRow(
+            column(6,
+                   plotlyOutput("gdpr_plot"))))))
