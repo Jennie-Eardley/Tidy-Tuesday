@@ -1,7 +1,7 @@
 source("global.R")
 
 ui <- fluidPage(
-    theme = shinytheme("superhero"),
+    theme = shinytheme("cerulean"),
     titlePanel(
         title = tags$h1("GDPR Violations")
     ),
@@ -11,10 +11,10 @@ ui <- fluidPage(
         sidebarPanel(
             
             
-            checkboxGroupInput("country", "Select Countries",
+            checkboxGroupInput("name", "Select Countries",
                              unique(gdpr_violations$name))
         ),
 mainPanel(
         fluidRow(
-            column(6,
-                   plotlyOutput("gdpr_plot"))))))
+            
+                   plotlyOutput("gdpr_plot")))))
