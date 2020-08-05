@@ -12,9 +12,11 @@ ui <- fluidPage(
             
             
             checkboxGroupInput("name", "Select Countries",
-                             unique(gdpr_violations$name))
+                             unique(gdpr_violations$name)),
+            actionButton("update", "Update Graph"),
         ),
+        
+        
 mainPanel(
         fluidRow(
-            
-                   plotlyOutput("gdpr_plot")))))
+                   plotOutput("plot_1")))))
