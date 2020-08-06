@@ -9,14 +9,14 @@ ui <- fluidPage(
     sidebarLayout(
         
         sidebarPanel(
-            
-            
             checkboxGroupInput("name", "Select Countries",
                              unique(gdpr_violations$name)),
-            actionButton("update", "Update Graph"),
+            actionButton("update", "Update Graph")
         ),
         
-        
-mainPanel(
-        fluidRow(
-                   plotOutput("plot_1")))))
+        mainPanel(
+            fluidRow(
+                plotOutput("plot_1"))
+            )
+        )
+    )

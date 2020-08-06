@@ -5,7 +5,7 @@ server <- function(input, output) {
     gdpr_violations %>% 
       filter(name %in% input$name) %>% 
       ggplot() +
-      geom_bar(aes_string(x = name), fill = "#317eac") +
+      geom_bar(aes(x = name), fill = "#317eac") +
       labs(x = "Country",
            y = "Number of GDPR Violations",
            caption = "Data credit to Bob Rudis and Roel Hogervorst") +
