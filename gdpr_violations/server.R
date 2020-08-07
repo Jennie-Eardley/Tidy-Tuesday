@@ -13,6 +13,6 @@ server <- function(input, output) {
     
     
   })
-  output$plot_1 <- renderPlot({gdpr_plot()})
+  output$plot_1 <- renderPlotly({gdpr_plot()})
 }
 
