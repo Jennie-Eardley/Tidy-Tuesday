@@ -4,6 +4,7 @@ server <- function(input, output) {
   
     gdpr_violations %>% 
       filter(name %in% input$name) %>% 
+      filter(date >= input$date_range[1], date <= input$date_range[2]) %>% 
       ggplot() +
       geom_bar(aes(x = name), fill = "#317eac") +
       labs(x = "Country",
