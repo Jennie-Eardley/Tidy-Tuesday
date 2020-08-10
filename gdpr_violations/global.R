@@ -8,3 +8,4 @@ gdpr_violations <- readr::read_tsv('https://raw.githubusercontent.com/rfordatasc
 
 attach(gdpr_violations)
 gdpr_violations <- gdpr_violations[order(name), ]
+gdpr_violations$date <- mdy(gdpr_violations$date)
