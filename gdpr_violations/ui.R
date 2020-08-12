@@ -27,7 +27,7 @@ ui <- fluidPage(
         
         mainPanel(
             fluidRow(
-                plotlyOutput("plot_1"))
+                plotOutput("plot_1"))
         )
     )
 )

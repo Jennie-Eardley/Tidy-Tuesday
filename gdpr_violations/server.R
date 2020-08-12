@@ -10,12 +10,13 @@ server <- function(input, output) {
       labs(x = "Country",
            y = "Number of Violations",
            title = "Number of GDPR Violations by Country",
-           caption = "Data credit to Bob Rudis and Roel Hogervorst") +
+           caption = "Data credit to Bob Rudis and Roel Hogervorst"
+           ) +
       theme(axis.text.x = element_text(angle = 45, hjust = 1))
     
     
   })
-  output$plot_1 <- renderPlotly({gdpr_plot()})
+  output$plot_1 <- renderPlot({gdpr_plot()})
 }
 
 
