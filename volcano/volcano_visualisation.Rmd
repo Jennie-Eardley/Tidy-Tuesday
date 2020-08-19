@@ -18,27 +18,26 @@ sulfur <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tid
 volcano_eruptions <- inner_join(volcano, eruptions)
 ```
 ```{r}
-volcano_eruptions %>% 
-  count(country) %>% 
-  arrange(desc(n))
-```
-```{r}
-icelandic_volcanoes <- volcano_eruptions %>% 
-  filter(country == "Iceland")
-```
-```{r}
-volcano_icon <- makeIcon(
-  iconURL = "/Users/jennie/git_projects/Tidy-Tuesdays/volcano/images/volcano.png",
-  iconWidth = 20, iconHeight = 30,
-  iconAnchorX = 22, iconAnchorY = 94)
+volcano_icon <- makeIcon("/Users/jennie/git_projects/Tidy-Tuesdays/volcano/images/volcano.png",
+ iconWidth = 20, iconHeight = 30,
+ iconAnchorX = 22, iconAnchorY = 94)
 ```
 
 ```{r}
-icelandic_volcanoes %>% 
+#tileOptions(minZoom = 10, maxZoom = 18)
+volcano_eruptions %>% 
   leaflet() %>% 
-  addTiles() %>% 
-  addCircleMarkers(lng = ~longitude,
+  addTiles() %>%
+  addEasyButton(easyButton(
+    icon="fa-globe", title="Zoom to Iceland",
+    onClick=JS("function(btn, map){ map.setZoom(1); }"))) %>% 
+  addMarkers(lng = ~longitude,
                    lat = ~latitude, 
-                   popup = ~volcano_name)
+                  popup = ~volcano_name, 
+            icon = volcano_icon)
 ```
+
+Icons made by "https://www.flaticon.com/authors/dinosoftlabs" 
+
+
 
