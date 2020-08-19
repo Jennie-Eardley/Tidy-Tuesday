@@ -1,0 +1,44 @@
+```{r}
+library(tidyverse)
+library(leaflet)
+library(ggforce)
+```
+
+
+```{r}
+volcano <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-05-12/volcano.csv')
+eruptions <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-05-12/eruptions.csv')
+events <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-05-12/events.csv')
+tree_rings <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-05-12/tree_rings.csv')
+sulfur <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-05-12/sulfur.csv')
+```
+
+```{r}
+# creating a dataframe with all of the eruption information with more details about the volcanoes 
+volcano_eruptions <- inner_join(volcano, eruptions)
+```
+```{r}
+volcano_eruptions %>% 
+  count(country) %>% 
+  arrange(desc(n))
+```
+```{r}
+icelandic_volcanoes <- volcano_eruptions %>% 
+  filter(country == "Iceland")
+```
+```{r}
+volcano_icon <- makeIcon(
+  iconURL = "/Users/jennie/git_projects/Tidy-Tuesdays/volcano/images/volcano.png",
+  iconWidth = 20, iconHeight = 30,
+  iconAnchorX = 22, iconAnchorY = 94)
+```
+
+```{r}
+icelandic_volcanoes %>% 
+  leaflet() %>% 
+  addTiles() %>% 
+  addCircleMarkers(lng = ~longitude,
+                   lat = ~latitude, 
+                   popup = ~volcano_name)
+```
+
