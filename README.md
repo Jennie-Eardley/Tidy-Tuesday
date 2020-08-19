@@ -16,6 +16,9 @@ Palmer Penguins:
 
 Volcanoes:
 
+![image](https://user-images.githubusercontent.com/59340652/90668303-cc844f80-e247-11ea-9eb2-4492b143386c.png)
+
+
 An image created using leaflet. Volcano icons originated from flat icon, credit to "https://www.flaticon.com/authors/dinosoftlabs" 
 
 
