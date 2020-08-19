@@ -10,7 +10,10 @@ Astronauts:
 
 GDPR Violations:
 
-A shiny app which looks at GDPR violations by country and that can be filtered by date. 
+A shiny app which looks at GDPR violations by country and that can be filtered by date.
+
+![image](https://user-images.githubusercontent.com/59340652/90669902-46b5d380-e24a-11ea-84b0-0e07c889ea61.png)
+
 
 Palmer Penguins:
 
