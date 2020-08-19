@@ -14,3 +14,9 @@ A shiny app which looks at GDPR violations by country and that can be filtered b
 
 Palmer Penguins:
 
+Volcanoes:
+
+An image created using leaflet. Volcano icons originated from flat icon, credit to "https://www.flaticon.com/authors/dinosoftlabs" 
+
+
+
