@@ -1,16 +1,11 @@
 ```{r}
 library(tidyverse)
 library(leaflet)
-library(ggforce)
 ```
-
 
 ```{r}
 volcano <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-05-12/volcano.csv')
 eruptions <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-05-12/eruptions.csv')
-events <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-05-12/events.csv')
-tree_rings <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-05-12/tree_rings.csv')
-sulfur <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-05-12/sulfur.csv')
 ```
 
 ```{r}
@@ -18,26 +13,24 @@ sulfur <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tid
 volcano_eruptions <- inner_join(volcano, eruptions)
 ```
 ```{r}
+# Using a volcano image from flaticon to use as a marker
 volcano_icon <- makeIcon("/Users/jennie/git_projects/Tidy-Tuesdays/volcano/images/volcano.png",
  iconWidth = 20, iconHeight = 30,
- iconAnchorX = 22, iconAnchorY = 94)
+ iconAnchorX = 0, iconAnchorY = 15)
 ```
 
 ```{r}
-#tileOptions(minZoom = 10, maxZoom = 18)
+# filtering to just Iceland and fixing the zoom
 volcano_eruptions %>% 
-  leaflet() %>% 
-  addTiles() %>%
-  addEasyButton(easyButton(
-    icon="fa-globe", title="Zoom to Iceland",
-    onClick=JS("function(btn, map){ map.setZoom(1); }"))) %>% 
-  addMarkers(lng = ~longitude,
-                   lat = ~latitude, 
-                  popup = ~volcano_name, 
-            icon = volcano_icon)
+filter(country == "Iceland") %>% 
+leaflet() %>% 
+addTiles(options = tileOptions(minZoom = 6, maxZoom = 6)) %>%
+addMarkers(lng = ~longitude,
+          lat = ~latitude, 
+          popup = ~volcano_name, 
+          icon = volcano_icon)  
 ```
-
 Icons made by "https://www.flaticon.com/authors/dinosoftlabs" 
 
-
+Data credit: The Smithsonian Institution
 
