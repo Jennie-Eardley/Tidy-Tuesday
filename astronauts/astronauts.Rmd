@@ -28,21 +28,26 @@ astronauts %>%
   ggplot() +
   geom_bar(aes(x = year_of_mission, fill = sex)) +
   facet_wrap(~sex) +
+  theme(panel.spacing = unit(1, "lines")) +
   labs(x = "Year of Mission",
          y = "Number of Astronauts",
          title = "Number of Astronaut Missions by Sex",
-       caption = "Source: Corlett, Stavnichuk, and Komarova 2020") +
+       caption = "Source: Corlett, Stavnichuk and Komarova 2020") +
   theme(legend.position = "none")
 ```
 ```{r}
 astronauts %>% 
+  filter(mission_number == "1") %>% 
   ggplot() + 
     geom_point(aes(x = year_of_selection, y = year_of_mission, colour = sex)) +
   facet_wrap(~sex) +
+  theme(panel.spacing = unit(1, "lines")) +
   labs(x = "Year of Selection",
        y = "Year of Mission",
-       caption = "Source: Corlett, Stavnichuk, and Komarova 2020")
+       title = "Year of First Mission Against Year of Selection",
+       caption = "Source: Corlett, Stavnichuk and Komarova 2020")
 ```
+
 
 
 
