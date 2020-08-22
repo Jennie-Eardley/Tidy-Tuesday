@@ -4,9 +4,13 @@ Tidy Tuesday is an R social data project, details are available here: https://gi
 
 Each week a new dataset is made available. 
 
-I hav selected a few that have interested me to work on and plan to continue working through the available data sets.
+I have selected a few that have interested me to work on and plan to continue working through the available data sets.
 
 Astronauts:
+
+Number of astronauts by year of mission split by sex.
+
+Year of mission against year of selection split by sex.
 
 GDPR Violations:
 
@@ -16,6 +20,8 @@ A shiny app which looks at GDPR violations by country and that can be filtered b
 
 
 Palmer Penguins:
+
+Artwork by @allison_horst
 
 Volcanoes:
 
