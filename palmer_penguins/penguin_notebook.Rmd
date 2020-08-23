@@ -18,24 +18,6 @@ ggplot() +
   labs(x = "Flipper Length (mm)",
        y = "Body Mass (g)",
        title = "Mass and Flipper Length of Penguins by Species",
-       caption = "Data from Dr. Kristen Gorman and the Palmer Station, Artwork by @allison_horst")
+       caption = "Data from Dr. Kristen Gorman and the Palmer Station")
 ```
-```{r}
-#im <- load.image("images/penguins.png")
-```
-```{r}
-#thmb <- resize(im,round(width(im)/10),round(height(im)/10))
-
-
-```
-
-```{r}
-#png(file="/Users/jennie/git_projects/Tidy-Tuesdays/palmer_penguins/images/penguins.png",
-#width=35, height=60)
-```
-
-![](/Users/jennie/git_projects/Tidy-Tuesdays/palmer_penguins/images/penguins.png)
-
-
-
 
