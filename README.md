@@ -25,7 +25,7 @@ A shiny app which looks at GDPR violations by country and that can be filtered b
 
 Palmer Penguins:
 
-Artwork by @allison_horst
+![image](https://user-images.githubusercontent.com/59340652/90976744-69403900-e537-11ea-9c40-629ffa681351.png)
 
 Volcanoes:
 
