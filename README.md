@@ -9,6 +9,8 @@ I have selected a few that have interested me to work on and plan to continue wo
 Astronauts:
 
 Number of astronauts by year of mission split by sex.
+![image](https://user-images.githubusercontent.com/59340652/90976286-aefb0280-e533-11ea-8bb3-f54f7fbcdfc9.png)
+
 
 Year of first mission against year of selection split by sex. On average the time between selection and the first mission is longer for male astronauts with a mean of 6.03 years compared to a mean of 5.63 for female astronauts. Additionally, the mean time between selection and the first mission is longer for Russian astronauts at 7.32 years compared to a mean of 5.82 years 
 ![image](https://user-images.githubusercontent.com/59340652/90976299-c1753c00-e533-11ea-985b-0e0192ad0aee.png)
