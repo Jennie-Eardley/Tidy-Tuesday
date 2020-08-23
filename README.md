@@ -35,7 +35,7 @@ This is a dataset which provides details of three different types of penguins. I
 
 **Volcanoes**:
 
-The volcano data came from the Smithsonian and gives detailed information about individual volcanoes and eruptions. I decided to focus on Iceland and used leaflet to visualise volcano eruptions on a map. I found the volcano icons on flaticon, credit to "https://www.flaticon.com/authors/dinosoftlabs" 
+The volcano data came from the Smithsonian and gives detailed information about individual volcanoes and eruptions. I decided to focus on Iceland and used leaflet to visualise volcano eruptions on a map. I found the volcano icons on flaticon, credit to "https://www.flaticon.com/authors/dinosoftlabs". If the code is run, you can hover over the volcano icons to get information about the volcano name - below is just a screenshot.  
 
 ![image](https://user-images.githubusercontent.com/59340652/90668303-cc844f80-e247-11ea-9eb2-4492b143386c.png)
 
