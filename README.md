@@ -39,8 +39,17 @@ The volcano data came from the Smithsonian and gives detailed information about 
 
 ![image](https://user-images.githubusercontent.com/59340652/90668303-cc844f80-e247-11ea-9eb2-4492b143386c.png)
 
+**Chopped**
+
+Here are some GGwordclouds of the most common ingredients used in the US cooking show "Chopped" broken down by course. Each ingredient featured at least 15 times in that particular course. Descriptive and stop words made this slightly trickier so I used anti-joins with lists of colours and stop words and an inner join with an extensive list of food. Libraries used: tidytext and ggwordcloud.
+
+Appetizers:
 ![image](https://user-images.githubusercontent.com/59340652/91607992-a6a82a80-e96c-11ea-94e6-96bf8638dc02.png)
+
+Entres:
 ![image](https://user-images.githubusercontent.com/59340652/91608074-c7708000-e96c-11ea-868f-f619d32a1af3.png)
+
+Desserts:
 ![image](https://user-images.githubusercontent.com/59340652/91608092-ce978e00-e96c-11ea-9fe2-bf145317a1cc.png)
 
 
