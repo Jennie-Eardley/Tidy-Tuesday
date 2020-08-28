@@ -4,10 +4,20 @@ library(tidytuesdayR)
 library(ggwordcloud)
 library(tidytext)
 ```
+
 ```{r}
 tuesdata <- tidytuesdayR::tt_load(2020, week = 35)
 
 chopped <- tuesdata$chopped
+
+colours <- read_csv("data/colorhexa_com.csv") 
+
+colours <- data.frame(lapply(colours, function(x){
+  if (is.character(x)) return(tolower(x))
+  else return(x)
+}))
+colours <- colours %>% 
+  mutate_if(is.factor, as.character)
 
 food_words <- read_csv("data/food-related.csv") %>% 
   rename("ingredient" = "-apo-")
@@ -18,6 +28,7 @@ appetizer_ingredients <- chopped %>%
   select(appetizer) %>% 
   unnest_tokens(ingredient, appetizer) %>% 
   inner_join(food_words) %>% 
+  anti_join(colours, by = c("ingredient" = "Name")) %>% 
   anti_join(stop_words, by = c("ingredient" = "word")) %>% 
   group_by(ingredient) %>% 
   summarise(count = n()) %>% 
@@ -28,7 +39,7 @@ appetizer_ingredients <- chopped %>%
 ggwordcloud(
   appetizer_ingredients$ingredient,
   appetizer_ingredients$count,
-  min.freq = 20
+  min.freq = 15
 )
 ```
 ```{r}
