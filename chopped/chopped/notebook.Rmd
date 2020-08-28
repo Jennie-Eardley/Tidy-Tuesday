@@ -39,13 +39,17 @@ appetizer_ingredients <- chopped %>%
 ggwordcloud(
   appetizer_ingredients$ingredient,
   appetizer_ingredients$count,
-  min.freq = 15
+  min.freq = 15,
+  colour = "blue"
 )
 ```
 ```{r}
 entree_ingredients <- chopped %>% 
   select(entree) %>% 
   unnest_tokens(ingredient, entree) %>% 
+  inner_join(food_words) %>% 
+  anti_join(colours, by = c("ingredient" = "Name")) %>% 
+  anti_join(stop_words, by = c("ingredient" = "word")) %>% 
   group_by(ingredient) %>% 
   summarise(count = n()) %>% 
   arrange(desc(count))
@@ -56,13 +60,17 @@ entree_ingredients <- chopped %>%
 ggwordcloud(
   entree_ingredients$ingredient,
   entree_ingredients$count,
-  min.freq = 20
+  min.freq = 15,
+  colour = "dark green"
 )
 ```
 ```{r}
 dessert_ingredients <- chopped %>% 
   select(dessert) %>% 
   unnest_tokens(ingredient, dessert) %>% 
+  inner_join(food_words) %>% 
+  anti_join(colours, by = c("ingredient" = "Name")) %>% 
+  anti_join(stop_words, by = c("ingredient" = "word")) %>% 
   group_by(ingredient) %>% 
   summarise(count = n()) %>% 
   arrange(desc(count))
@@ -73,7 +81,8 @@ dessert_ingredients <- chopped %>%
 ggwordcloud(
   dessert_ingredients$ingredient,
   dessert_ingredients$count,
-  min.freq = 20
+  min.freq = 15,
+  colors = "purple"
 )
 ```
 
