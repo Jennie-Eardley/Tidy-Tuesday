@@ -1,0 +1,68 @@
+```{r}
+library(tidyverse)
+library(tidytuesdayR)
+library(ggwordcloud)
+library(tidytext)
+```
+```{r}
+tuesdata <- tidytuesdayR::tt_load(2020, week = 35)
+
+chopped <- tuesdata$chopped
+
+food_words <- read_csv("data/food-related.csv") %>% 
+  rename("ingredient" = "-apo-")
+rbind(food_words, "cheese")
+```
+```{r}
+appetizer_ingredients <- chopped %>% 
+  select(appetizer) %>% 
+  unnest_tokens(ingredient, appetizer) %>% 
+  inner_join(food_words) %>% 
+  anti_join(stop_words, by = c("ingredient" = "word")) %>% 
+  group_by(ingredient) %>% 
+  summarise(count = n()) %>% 
+  arrange(desc(count))
+
+```
+```{r}
+ggwordcloud(
+  appetizer_ingredients$ingredient,
+  appetizer_ingredients$count,
+  min.freq = 20
+)
+```
+```{r}
+entree_ingredients <- chopped %>% 
+  select(entree) %>% 
+  unnest_tokens(ingredient, entree) %>% 
+  group_by(ingredient) %>% 
+  summarise(count = n()) %>% 
+  arrange(desc(count))
+
+```
+
+```{r}
+ggwordcloud(
+  entree_ingredients$ingredient,
+  entree_ingredients$count,
+  min.freq = 20
+)
+```
+```{r}
+dessert_ingredients <- chopped %>% 
+  select(dessert) %>% 
+  unnest_tokens(ingredient, dessert) %>% 
+  group_by(ingredient) %>% 
+  summarise(count = n()) %>% 
+  arrange(desc(count))
+
+```
+
+```{r}
+ggwordcloud(
+  dessert_ingredients$ingredient,
+  dessert_ingredients$count,
+  min.freq = 20
+)
+```
+
