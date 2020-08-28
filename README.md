@@ -39,6 +39,10 @@ The volcano data came from the Smithsonian and gives detailed information about 
 
 ![image](https://user-images.githubusercontent.com/59340652/90668303-cc844f80-e247-11ea-9eb2-4492b143386c.png)
 
+![image](https://user-images.githubusercontent.com/59340652/91607992-a6a82a80-e96c-11ea-94e6-96bf8638dc02.png)
+![image](https://user-images.githubusercontent.com/59340652/91608074-c7708000-e96c-11ea-868f-f619d32a1af3.png)
+![image](https://user-images.githubusercontent.com/59340652/91608092-ce978e00-e96c-11ea-9fe2-bf145317a1cc.png)
+
 
 
 
