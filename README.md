@@ -55,6 +55,13 @@ Desserts:
 
 ![image](https://user-images.githubusercontent.com/59340652/91608092-ce978e00-e96c-11ea-9fe2-bf145317a1cc.png)
 
+**Crop Yield**
+
+This week there was a selection of different datasets to look at from Our World in Data relating to crop yield. I had a look at the production of bananas in South American countries. 
+
+![image](https://user-images.githubusercontent.com/59340652/91878167-d01bcb80-ec76-11ea-87cd-f409bafd0279.png)
+
+
 
 
 
