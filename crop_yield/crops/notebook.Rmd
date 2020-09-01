@@ -21,14 +21,14 @@ crop_yields_sa <- inner_join(key_crop_yields, sa_countries, by = c("entity" = "C
 ```{r}
 crop_yields_sa %>% 
   ggplot() +
-  geom_line(aes(x = year, y = bananas_tonnes_per_hectare, colour = entity)) 
+  geom_line(aes(x = year, y = bananas_tonnes_per_hectare, colour = entity)) +
+  labs(x = "Year",
+       y = "Bananas per Hectare (tonnes)", 
+       title = "Yield of Bananas in South American Countries",
+       caption = "Source = Our World in Data, Ritchie and Roser",
+       colour = "Country")
+  
 ```
-```{r}
-total_yield_sa <- crop_yields_sa %>% 
-  mutate(total_yield = colSums([,-1,-2,-3]))
-```
-```{r}
-colSums(crop_yields_sa[c(-1,-2,-3)])
-```
+
 
 
