@@ -1,0 +1,34 @@
+```{r}
+library(tidyverse)
+library(tidytuesdayR)
+library(janitor)
+```
+
+```{r}
+tuesdata <- tidytuesdayR::tt_load('2020-09-01')
+```
+```{r}
+key_crop_yields <- tuesdata$key_crop_yields %>% 
+  clean_names()
+sa_countries <- read_csv("data/list-south-american-countries-447j.csv") %>% 
+  select(Country)
+```
+```{r}
+crop_yields_sa <- inner_join(key_crop_yields, sa_countries, by = c("entity" = "Country"))
+```
+
+
+```{r}
+crop_yields_sa %>% 
+  ggplot() +
+  geom_line(aes(x = year, y = bananas_tonnes_per_hectare, colour = entity)) 
+```
+```{r}
+total_yield_sa <- crop_yields_sa %>% 
+  mutate(total_yield = colSums([,-1,-2,-3]))
+```
+```{r}
+colSums(crop_yields_sa[c(-1,-2,-3)])
+```
+
+
