@@ -1,0 +1,19 @@
+```{r}
+library(tidytuesdayR)
+library(tidyverse)
+library(leaflet)
+```
+```{r}
+tuesdata <- tidytuesdayR::tt_load(2020, week = 5)
+sf_trees <- tuesdata$sf_trees
+```
+```{r}
+summary(sf_trees)
+```
+```{r}
+tree_locations <- sf_trees %>% 
+  group_by(latitude, longitude) %>% 
+  summarise(n = n()) %>% 
+  arrange(desc(n))
+```
+
