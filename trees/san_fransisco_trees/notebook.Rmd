@@ -1,7 +1,8 @@
 ```{r}
 library(tidytuesdayR)
 library(tidyverse)
-library(leaflet)
+library(tsibbledata)
+library(lubridate)
 ```
 ```{r}
 tuesdata <- tidytuesdayR::tt_load(2020, week = 5)
@@ -11,9 +12,22 @@ sf_trees <- tuesdata$sf_trees
 summary(sf_trees)
 ```
 ```{r}
-tree_locations <- sf_trees %>% 
-  group_by(latitude, longitude) %>% 
-  summarise(n = n()) %>% 
+sf_trees <- sf_trees %>% 
+  mutate(year = year(date))
+```
+```{r}
+sf_trees %>% 
+  group_by(year) %>% 
+  summarise(n=n()) %>% 
   arrange(desc(n))
+```
+
+```{r}
+sf_trees %>% 
+  filter(!is.na(year)) %>% 
+  group_by(year) %>% 
+  summarise(n=n()) %>% 
+  ggplot()+
+  geom_line(aes(x = year, y = n)) 
 ```
 
