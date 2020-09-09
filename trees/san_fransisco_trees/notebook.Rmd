@@ -1,7 +1,6 @@
 ```{r}
 library(tidytuesdayR)
 library(tidyverse)
-library(tsibbledata)
 library(lubridate)
 ```
 ```{r}
@@ -21,13 +20,19 @@ sf_trees %>%
   summarise(n=n()) %>% 
   arrange(desc(n))
 ```
+```{r}
+test <- sf_trees %>% 
+  filter(!is.na(year)) %>% 
+  group_by(year, caretaker) %>% 
+  summarise(n=n())
+```
 
 ```{r}
 sf_trees %>% 
   filter(!is.na(year)) %>% 
-  group_by(year) %>% 
+  group_by(year,caretaker) %>% 
   summarise(n=n()) %>% 
   ggplot()+
-  geom_line(aes(x = year, y = n)) 
+  geom_col(aes(x = year, y = n, fill = caretaker)) 
 ```
 
