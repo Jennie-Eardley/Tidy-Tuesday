@@ -63,7 +63,7 @@ This week there was a selection of different datasets to look at from Our World 
 
 **San Francisco Trees**
 
-Experimenting with clusters in leaflet. When the code is open the user can click on each cluster to see a visualisation of the area covered by the cluster. Double clicking on a cluster allows the user to zoom in one the area covered with a breakdown of clusters. Data is from San Francisco's Open Data Portal. 
+Experimenting with clusters in leaflet. This visualisation shows a clustered distribution of trees across San Francisco. When the code is open the user can click on each cluster to see a visualisation of the area covered by the cluster. Double clicking on a cluster allows the user to zoom in one the area covered with a breakdown of clusters. Data is from San Francisco's Open Data Portal. 
 
 ![image](https://user-images.githubusercontent.com/59340652/92800909-0d860480-f3ad-11ea-88d3-5b227007444e.png)
 
