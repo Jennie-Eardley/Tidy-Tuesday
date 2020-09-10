@@ -2,6 +2,7 @@
 library(tidytuesdayR)
 library(tidyverse)
 library(lubridate)
+library(leaflet)
 ```
 ```{r}
 tuesdata <- tidytuesdayR::tt_load(2020, week = 5)
@@ -11,28 +12,33 @@ sf_trees <- tuesdata$sf_trees
 summary(sf_trees)
 ```
 ```{r}
+# creating a column with just years
 sf_trees <- sf_trees %>% 
   mutate(year = year(date))
 ```
 ```{r}
+# grouping by year 
 sf_trees %>% 
   group_by(year) %>% 
   summarise(n=n()) %>% 
   arrange(desc(n))
-```
-```{r}
-test <- sf_trees %>% 
-  filter(!is.na(year)) %>% 
-  group_by(year, caretaker) %>% 
-  summarise(n=n())
-```
 
+```
 ```{r}
+# looking at numbers of trees planted by year
 sf_trees %>% 
   filter(!is.na(year)) %>% 
   group_by(year,caretaker) %>% 
   summarise(n=n()) %>% 
   ggplot()+
-  geom_col(aes(x = year, y = n, fill = caretaker)) 
+  geom_line(aes(x = year, y = n, col = caretaker)) 
+```
+```{r}
+# visualising tree distribution
+leaflet(sf_trees) %>%
+  addTiles() %>%  
+  addMarkers(lng = ~longitude,
+                   lat = ~latitude, 
+               clusterOptions = markerClusterOptions())
 ```
 
