@@ -1,0 +1,12 @@
+```{r}
+library(tidyverse)
+library(tidytuesdayR)
+```
+
+```{r}
+tuesdata <- tidytuesdayR::tt_load('2020-09-15')
+```
+```{r}
+kids <-tuesdata$kids
+```
+
