@@ -1,6 +1,7 @@
 ```{r}
 library(tidyverse)
 library(tidytuesdayR)
+library(gganimate)
 ```
 
 ```{r}
@@ -8,5 +9,22 @@ tuesdata <- tidytuesdayR::tt_load('2020-09-15')
 ```
 ```{r}
 kids <-tuesdata$kids
+```
+```{r}
+kids_formatted <- kids %>%
+  filter(variable == "PK12ed") %>% 
+  group_by(year) %>% 
+  mutate(rank = rank(-inf_adj_perchild),
+         Value_rel = inf_adj_perchild/inf_adj_perchild[rank==1],
+         Value_lbl = paste0(" ",round(inf_adj_perchild/1e9))) %>%
+  group_by(state) %>%
+  filter(rank <=51) %>%
+  ungroup()
+```
+
+```{r}
+kids_plot <- kids_formatted %>% 
+  ggplot() +
+  geom_bar(aes(x = ))
 ```
 
