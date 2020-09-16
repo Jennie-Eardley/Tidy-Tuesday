@@ -67,7 +67,8 @@ staticplot
 animated_plot <- staticplot +
   transition_states(year, transition_length = 4, state_length = 1) +
   view_follow(fixed_x = TRUE) +
-  labs(title = "Spend on Education")
+  labs(title = "Education Spend {closest_state}"
+       )
   
 ```
 
