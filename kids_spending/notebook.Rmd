@@ -16,7 +16,7 @@ kids_formatted <- kids %>%
   group_by(year) %>% 
   mutate(rank = rank(-inf_adj_perchild),
          value_rel = inf_adj_perchild/inf_adj_perchild[rank==1],
-         value_lbl = paste0(" ",round(inf_adj_perchild/1e9))) %>%
+         value_lbl = paste0(" ",round(inf_adj_perchild))) %>%
   group_by(state) %>%
   filter(rank <=51) %>%
   ungroup()
@@ -67,7 +67,7 @@ staticplot
 animated_plot <- staticplot +
   transition_states(year, transition_length = 4, state_length = 1) +
   view_follow(fixed_x = TRUE) +
-  labs(title = "Spend on ")
+  labs(title = "Spend on Education")
   
 ```
 
