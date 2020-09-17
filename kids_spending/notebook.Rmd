@@ -10,7 +10,10 @@ tuesdata <- tidytuesdayR::tt_load('2020-09-15')
 ```{r}
 kids <-tuesdata$kids
 ```
+
+
 ```{r}
+# sorting into groups and filtering to look at primary and secondary education only
 kids_formatted <- kids %>%
   filter(variable == "PK12ed") %>% 
   group_by(year) %>% 
@@ -18,15 +21,10 @@ kids_formatted <- kids %>%
          value_rel = inf_adj_perchild/inf_adj_perchild[rank==1],
          value_lbl = paste0(" ",round(inf_adj_perchild))) %>%
   group_by(state) %>%
-  filter(rank <=51) %>%
+  filter(rank <= 51) %>%
   ungroup()
 ```
 
-```{r}
-kids_plot <- kids_formatted %>% 
-  ggplot() +
-  geom_bar(aes(x = ))
-```
 ```{r}
 staticplot <- ggplot(kids_formatted, aes(rank, group = state,
                 fill = as.factor(state), color = as.factor(state))) +
