@@ -71,6 +71,7 @@ Experimenting with clusters in leaflet. This visualisation shows a clustered dis
 
 This dataset looks at spending per child by US state between 1997 and 2016. I decided to concentrate on the spend on primary and secondary education. I had my first go at an animated plot following an excellent tutorial by Abdul Majed Raja available at: https://www.r-bloggers.com/how-to-create-bar-race-animation-charts-in-r/ 
 
+![Uploading gganim.gif…]()
 
 
 
