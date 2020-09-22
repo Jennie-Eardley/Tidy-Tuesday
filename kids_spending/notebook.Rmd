@@ -2,6 +2,7 @@
 library(tidyverse)
 library(tidytuesdayR)
 library(gganimate)
+library(gifski)
 ```
 
 ```{r}
@@ -48,8 +49,8 @@ staticplot <- ggplot(kids_formatted, aes(rank, group = state,
         panel.border = element_blank(),
         panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
-        panel.grid.major.x = element_line( size=.1, color="grey" ),
-        panel.grid.minor.x = element_line( size=.1, color="grey" ),
+        panel.grid.major.x = element_line( size=.2, color="grey" ),
+        panel.grid.minor.x = element_line( size=.2, color="grey" ),
         plot.title = element_text(size=25, hjust=0.5, face="bold", colour="black", vjust=-1),
         plot.subtitle = element_text(size=18, hjust=0.5, color="black"),
         plot.caption = element_text(size=8, hjust=0.5, face ="italic", color="black"),
@@ -70,5 +71,11 @@ animated_plot <- staticplot +
        caption = "Data Credit: Joshua Rosenberg"
        )
   
+```
+
+```{r}
+animate(animated_plot, 200, fps = 20,  width = 1200, height = 1000,
+        renderer = gifski_renderer("gganim.gif"))
+
 ```
 
