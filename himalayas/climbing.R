@@ -21,12 +21,12 @@ expeditions <- expeditions %>%
 expeditions %>% 
   filter(!is.na(expedition_length)) %>% 
   ggplot() + 
-  geom_point(aes(x = year, y = expedition_length, col = oxygen_usage)) 
+  geom_point(aes(x = year, y = expedition_length, col = oxygen_usage)) +
  facet_wrap(~season) +
   labs(x = "Year",
        y = "Length of Expedition (days)",
-       title = "Use of Oxygen in Himilaya Expeditions",
+       title = "Use of Oxygen in Himalayan Expeditions",
        caption = "Data Source: The Himalayan Database and Alex Cookson") +
-  theme(legend.title = element_blank()) 
+  theme(legend.title = element_blank(), plot.title = element_text(hjust = 0.5)) 
   
 
