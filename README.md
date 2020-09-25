@@ -74,4 +74,11 @@ This dataset looks at spending per child by US state between 1997 and 2016. I de
 
 ![gganim](https://user-images.githubusercontent.com/59340652/93917909-810c0800-fd03-11ea-97e3-0dc4c8a4583b.gif)
 
+**Himalayas**
+
+This week's dataset is about all of the expeditions to Himalayan mountains and includes information about successes, failures and information about the climbers themselves. I had a look at all of the expeditions by season and split it by oxygen usage. We can see that Spring and Autumn are the most popular seasons to climb. Generally, oxygen is more likely to be used during longer expeditions. 
+
+![image](https://user-images.githubusercontent.com/59340652/94286617-2534bf80-ff4d-11ea-8217-9def9cb0d936.png)
+
+
 
