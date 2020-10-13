@@ -16,7 +16,11 @@ ggplot(datasaurus, aes(x=x, y=y, colour=dataset))+
 ```
 ```{r}
 datasaurus %>% 
-  filter(dataset == "dino") %>% 
-  ggplot(aes())
+  ggplot() +
+  geom_point(aes(x = x, y = y, colour = dataset)) +
+  transition_states(dataset, 
+                    transition_length = 1,
+                    state_length = 3,
+                    wrap = FALSE)
 ```
 
