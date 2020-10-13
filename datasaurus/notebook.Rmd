@@ -2,6 +2,7 @@
 library(tidyverse)
 library(tidytuesdayR)
 library(gganimate)
+library(gifski)
 ```
 ```{r}
 tuesdata <- tidytuesdayR::tt_load(2020, week = 42)
@@ -15,12 +16,20 @@ ggplot(datasaurus, aes(x=x, y=y, colour=dataset))+
   facet_wrap(~dataset, ncol = 3)
 ```
 ```{r}
-datasaurus %>% 
+animated_plot <- datasaurus %>% 
   ggplot() +
   geom_point(aes(x = x, y = y, colour = dataset)) +
+  theme_void() +
+  theme(plot.title = element_text(hjust = 0.5), legend.position = "none") +
   transition_states(dataset, 
-                    transition_length = 1,
+                    transition_length = 2,
                     state_length = 3,
-                    wrap = FALSE)
+                    wrap = FALSE) +
+  labs(title = "A Series of Datasets with the Same Summary Statistics") 
+```
+
+```{r}
+animate(animated_plot, 200, fps = 20,  width = 1200, height = 1000,
+        renderer = gifski_renderer("dinosaurus.gif"))
 ```
 
