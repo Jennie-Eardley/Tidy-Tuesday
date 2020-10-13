@@ -1,0 +1,22 @@
+```{r}
+library(tidyverse)
+library(tidytuesdayR)
+library(gganimate)
+```
+```{r}
+tuesdata <- tidytuesdayR::tt_load(2020, week = 42)
+
+datasaurus <- tuesdata$datasaurus
+
+ggplot(datasaurus, aes(x=x, y=y, colour=dataset))+
+  geom_point()+
+  theme_void()+
+  theme(legend.position = "none")+
+  facet_wrap(~dataset, ncol = 3)
+```
+```{r}
+datasaurus %>% 
+  filter(dataset == "dino") %>% 
+  ggplot(aes())
+```
+
