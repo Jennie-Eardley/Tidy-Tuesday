@@ -81,4 +81,8 @@ This week's dataset is about all of the expeditions to Himalayan mountains and i
 ![image](https://user-images.githubusercontent.com/59340652/94286617-2534bf80-ff4d-11ea-8217-9def9cb0d936.png)
 
 
+**Dinosaurus**
 
+This visualisation utilises the Datasaurus Dozen dataset, a set of visualisations with almost identical mean of x, mean of y, standard deviation of x, standard deviation of y, and Pearson correlation between x and y values. It's purpose is to demonstrate the importance of plotting data and not to just rely on summary statistics. The original data is by Alberto Cairo. There is a datasauRus package by Steph Locke and Lucy McGowan and Jesus M. Castagnetto suggested the data to the TidyTuesday team. I used gganimate to create a plot animation and saved it as a gif using the gifski package. 
+
+![dinosaurus](https://user-images.githubusercontent.com/59340652/96001715-3d06b180-0e30-11eb-8c20-2285205c97a0.gif)
