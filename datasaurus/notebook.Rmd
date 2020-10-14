@@ -20,16 +20,17 @@ animated_plot <- datasaurus %>%
   ggplot() +
   geom_point(aes(x = x, y = y, colour = dataset)) +
   theme_void() +
-  theme(plot.title = element_text(hjust = 0.5), legend.position = "none") +
+  theme(plot.title = element_text(hjust = 0.5, size = 15), legend.position = "none") +
   transition_states(dataset, 
                     transition_length = 2,
                     state_length = 3,
                     wrap = FALSE) +
-  labs(title = "A Series of Datasets with the Same Summary Statistics") 
+  labs(title = "A Series of Datasets with the Same Summary Statistics",
+       caption = "Data Credit: Alberto Cairo") 
 ```
 
 ```{r}
-animate(animated_plot, 200, fps = 20,  width = 1200, height = 1000,
+animate(animated_plot, 200, fps = 20,  width = 600, height = 500,
         renderer = gifski_renderer("dinosaurus.gif"))
 ```
 
