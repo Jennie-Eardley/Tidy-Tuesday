@@ -39,6 +39,7 @@ astronauts %>%
   filter(mission_number == "1") %>% 
   ggplot() + 
     geom_point(aes(x = year_of_selection, y = year_of_mission, colour = sex)) +
+  annotate("text", x = 1990, y = 2025, label = "3.6 Writing function/program to create visualisations", size = 2.5) +
   facet_wrap(~sex) +
   theme(legend.position = "none", panel.spacing = unit(1, "lines"), plot.title = element_text(hjust = 0.5)) +
   labs(x = "Year of Selection",
